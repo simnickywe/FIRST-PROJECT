@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simnikiwe Ngqwebo - Data Analytics Professional</title>
     <style>
+        /* ===== BASE STYLES ===== */
         * {
             margin: 0;
             padding: 0;
@@ -21,6 +22,10 @@
             --card-bg: #2a2a2a;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', 'Segoe UI', sans-serif;
             background-color: var(--black);
@@ -28,7 +33,7 @@
             line-height: 1.6;
         }
 
-        /* Navigation Bar */
+        /* ===== NAVIGATION ===== */
         nav {
             position: fixed;
             top: 0;
@@ -83,7 +88,7 @@
             cursor: pointer;
         }
 
-        /* Hero Section */
+        /* ===== HERO SECTION ===== */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -118,6 +123,31 @@
             font-size: 1.3rem;
             color: #b5b5b5;
             margin-bottom: 2rem;
+        }
+
+        .hero-right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(139, 92, 246, 0.4);
+            border: 4px solid transparent;
+            background: linear-gradient(var(--black), var(--black)) padding-box,
+                        linear-gradient(135deg, var(--purple), var(--pink), var(--orange)) border-box;
+            transition: all 0.3s;
+        }
+
+        .hero-profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 50px rgba(236, 72, 153, 0.5);
         }
 
         .hero-buttons {
@@ -159,7 +189,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-            margin-top: 3rem;
+            width: 100%;
         }
 
         .stat-card {
@@ -175,7 +205,7 @@
             color: #b5b5b5;
         }
 
-        /* Section Styles */
+        /* ===== SECTION STYLES ===== */
         section {
             padding: 6rem 2rem;
             max-width: 1400px;
@@ -199,7 +229,7 @@
             margin: 0 auto;
         }
 
-        /* About Section */
+        /* ===== ABOUT SECTION ===== */
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -211,6 +241,7 @@
             margin-bottom: 1.5rem;
             color: #b5b5b5;
             font-size: 1.1rem;
+            line-height: 1.8;
         }
 
         .about-details {
@@ -221,19 +252,48 @@
         }
 
         .detail-item {
-            padding: 1rem;
+            padding: 1.5rem;
             background: var(--card-bg);
             border-radius: 8px;
             border-left: 3px solid var(--purple);
+            transition: all 0.3s;
+        }
+
+        .detail-item:hover {
+            transform: translateX(5px);
+            border-left-color: var(--pink);
         }
 
         .detail-item strong {
             color: var(--orange);
             display: block;
             margin-bottom: 0.5rem;
+            font-size: 1rem;
         }
 
-        /* Skills Section */
+        .detail-item span {
+            color: #b5b5b5;
+            font-size: 0.95rem;
+        }
+
+        .about-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-image > div {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--purple), var(--pink), var(--orange));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+        }
+
+        /* ===== SKILLS SECTION ===== */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -279,7 +339,7 @@
             font-size: 1.2rem;
         }
 
-        /* Experience Section */
+        /* ===== EXPERIENCE SECTION ===== */
         .experience-timeline {
             position: relative;
             padding-left: 2rem;
@@ -338,7 +398,7 @@
             color: #b5b5b5;
         }
 
-        /* Projects Section */
+        /* ===== PROJECTS SECTION ===== */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -398,7 +458,7 @@
             font-size: 0.85rem;
         }
 
-        /* Certifications Section */
+        /* ===== CERTIFICATIONS SECTION ===== */
         .cert-card {
             background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(249, 115, 22, 0.1));
             border: 2px solid var(--red);
@@ -434,7 +494,7 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Testimonials Section */
+        /* ===== TESTIMONIALS SECTION ===== */
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -482,7 +542,7 @@
             font-size: 0.9rem;
         }
 
-        /* Contact Section */
+        /* ===== CONTACT SECTION ===== */
         .contact-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -584,7 +644,17 @@
             box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
         }
 
-        /* Footer */
+        .success-message {
+            display: none;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        /* ===== FOOTER ===== */
         footer {
             background: var(--dark-bg);
             padding: 3rem 2rem;
@@ -614,7 +684,7 @@
             color: var(--purple);
         }
 
-        /* Responsive Design */
+        /* ===== RESPONSIVE DESIGN ===== */
         @media (max-width: 1024px) {
             .hero-content,
             .about-content,
@@ -657,22 +727,10 @@
             section {
                 padding: 4rem 1rem;
             }
-        }
 
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Success Message */
-        .success-message {
-            display: none;
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: white;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-top: 1rem;
-            text-align: center;
+            .about-details {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -706,18 +764,21 @@
                     <a href="#projects" class="btn-secondary">View Projects</a>
                 </div>
             </div>
-            <div class="hero-stats">
-                <div class="stat-card">
-                    <h3>1</h3>
-                    <p>Years Experience</p>
-                </div>
-                <div class="stat-card">
-                    <h3>1</h3>
-                    <p>Projects Completed</p>
-                </div>
-                <div class="stat-card">
-                    <h3>1</h3>
-                    <p>Certification</p>
+            <div class="hero-right">
+                <img src="profile.jpg" alt="Simnikiwe Ngqwebo" class="hero-profile-image">
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <h3>1</h3>
+                        <p>Years Experience</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>1</h3>
+                        <p>Projects Completed</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>1</h3>
+                        <p>Certification</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -736,24 +797,24 @@
                 <div class="about-details">
                     <div class="detail-item">
                         <strong>Location</strong>
-                        Cape Town, Western Cape
-                    </div>
-                    <div class="detail-item">
-                        <strong>Age</strong>
-                        26 Years
+                        <span>Cape Town, Western Cape</span>
                     </div>
                     <div class="detail-item">
                         <strong>Languages</strong>
-                        IsiXhosa, English, Setswana
+                        <span>IsiXhosa, English, Setswana</span>
                     </div>
                     <div class="detail-item">
                         <strong>Interests</strong>
-                        Data Analytics, ML, BI Tools
+                        <span>Data Analytics, ML, BI Tools</span>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Education</strong>
+                        <span>Walter Sisulu University</span>
                     </div>
                 </div>
             </div>
             <div class="about-image">
-                <div style="width: 100%; height: 400px; background: linear-gradient(135deg, var(--purple), var(--pink), var(--orange)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 8rem;">📊</div>
+                <div>📊</div>
             </div>
         </div>
     </section>
